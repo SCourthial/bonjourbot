@@ -14,21 +14,21 @@ var app = {
 
 violet.addFlowScript(`<app>
     <<choice id="launch">
-        <expecting>A quoi sers-tu?</expecting>
+        <expecting>à quoi sert tu</expecting>
         <say>Je peux dire bonjour en français ou en anglais</say>
     </choice>
 
     <choice id="list">
-    <expecting>Dis bonjour.</expecting>
+    <expecting>dis bonjour</expecting>
     <say>Bien sur!</say>
     <decision>
         <ask>Dois-je dire bonjour en français ou en anglais?</ask>
         <choice>
-            <expecting>En français.</expecting>
+            <expecting>en français</expecting>
             <resolve value="app.helloInFrench(response)"/>
         </choice>
         <choice>
-            <expecting>En anglais.</expecting>
+            <expecting>en anglais</expecting>
             <resolve value="app.helloInEnglish(response)"/>
         </choice>
     </decision>
