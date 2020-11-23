@@ -11,26 +11,27 @@ var app = {
     }
 }
 
-
-violet.addFlowScript(`<app>
-    <<choice id="launch">
-        <expecting>à quoi sert tu</expecting>
-        <say>Je peux dire bonjour en français ou en anglais</say>
-    </choice>
-
-    <choice id="list">
-    <expecting>dis bonjour</expecting>
-    <say>Bien sur!</say>
-    <decision>
-        <ask>Dois-je dire bonjour en français ou en anglais?</ask>
-        <choice>
-            <expecting>en français</expecting>
-            <resolve value="app.helloInFrench(response)"/>
+// The Conversation Flow
+violet.addFlowScript(`
+    <app>
+        <choice id="launch">
+            <expecting>à quoi sert tu</expecting>
+            <say>Je peux dire bonjour en français ou en anglais</say>
         </choice>
-        <choice>
-            <expecting>en anglais</expecting>
-            <resolve value="app.helloInEnglish(response)"/>
+
+        <choice id="list">
+        <expecting>dis bonjour</expecting>
+        <say>Bien sur!</say>
+        <decision>
+            <ask>Dois-je dire bonjour en français ou en anglais?</ask>
+            <choice>
+                <expecting>en français</expecting>
+                <resolve value="app.helloInFrench(response)"/>
+            </choice>
+            <choice>
+                <expecting>en anglais</expecting>
+                <resolve value="app.helloInEnglish(response)"/>
+            </choice>
+        </decision>
         </choice>
-    </decision>
-    </choice>
-</app>`, {app});
+    </app>`, {app});
